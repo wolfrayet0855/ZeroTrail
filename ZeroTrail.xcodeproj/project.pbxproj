@@ -6,13 +6,33 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9A4570362CC048B5000B3525 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9A4570352CC048B5000B3525 /* Config.xcconfig */; };
+		9A45703A2CC04B0C000B3525 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4570392CC04B0C000B3525 /* Configuration.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		9A4570352CC048B5000B3525 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		9A4570392CC04B0C000B3525 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		9A9135742CBEEB2B0025D337 /* ZeroTrail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZeroTrail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9A4570382CC04955000B3525 /* Exceptions for "ZeroTrail" folder in "ZeroTrail" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9A9135732CBEEB2B0025D337 /* ZeroTrail */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9A9135762CBEEB2B0025D337 /* ZeroTrail */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9A4570382CC04955000B3525 /* Exceptions for "ZeroTrail" folder in "ZeroTrail" target */,
+			);
 			path = ZeroTrail;
 			sourceTree = "<group>";
 		};
@@ -32,6 +52,8 @@
 		9A91356B2CBEEB2B0025D337 = {
 			isa = PBXGroup;
 			children = (
+				9A4570392CC04B0C000B3525 /* Configuration.swift */,
+				9A4570352CC048B5000B3525 /* Config.xcconfig */,
 				9A9135762CBEEB2B0025D337 /* ZeroTrail */,
 				9A9135752CBEEB2B0025D337 /* Products */,
 			);
@@ -109,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A4570362CC048B5000B3525 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A45703A2CC04B0C000B3525 /* Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +270,7 @@
 		};
 		9A9135832CBEEB2E0025D337 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A4570352CC048B5000B3525 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -254,6 +279,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ZeroTrail/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZeroTrail/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -274,6 +300,7 @@
 		};
 		9A9135842CBEEB2E0025D337 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A4570352CC048B5000B3525 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -282,6 +309,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ZeroTrail/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZeroTrail/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
