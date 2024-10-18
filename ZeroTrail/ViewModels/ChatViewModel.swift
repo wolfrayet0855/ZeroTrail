@@ -5,15 +5,15 @@
 //  Created by user on 10/18/24.
 //
 import SwiftUI
-
-
+import Foundation
 
 class ChatViewModel: ObservableObject {
     @Published var messages: [Message] = []
     @Published var errorMessage: String?
     @Published var inputText: String = ""
-    @Published var chatSessions: [ChatSession] = []  // Store past chats
-    @Published var selectedChatSession: ChatSession? // Track the selected chat
+    @Published var chatSessions: [ChatSession] = []
+    @Published var selectedChatSession: ChatSession?
+    @Published var showChatSessions: Bool = false
     
     func sendMessage(_ text: String) {
         guard !text.isEmpty else { return }
@@ -66,8 +66,17 @@ class ChatViewModel: ObservableObject {
         messages = session.messages
     }
     
-    @Published var showChatSessions: Bool = false
-
+    func deleteChatSessions(byIds ids: [UUID]) {
+        chatSessions.removeAll { session in
+            ids.contains(session.id)
+        }
+    }
+    
+    func renameChatSession(byId id: UUID, newName: String) {
+        print("Renaming session:", id, "to", newName)
+        if let index = chatSessions.firstIndex(where: { $0.id == id }) {
+            chatSessions[index].title = newName
+            chatSessions = chatSessions.map { $0 }
+        }
+    }
 }
-
-

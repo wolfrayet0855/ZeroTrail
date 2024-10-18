@@ -9,6 +9,6 @@ import Foundation
 
 struct ChatSession: Identifiable {
     let id = UUID()
-    let title: String
+    var title: String  // Changed from 'let' to 'var'
     var messages: [Message]
 }

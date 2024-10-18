@@ -1,3 +1,5 @@
+//contentview
+
 import SwiftUI
 
 struct ContentView: View {
@@ -6,14 +8,17 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             if geometry.size.width > 600 {
-                // Use a sidebar layout on wider screens (iPads, macOS)
                 HStack {
-                    ChatSidebarView(chatSessions: $viewModel.chatSessions, onSelect: viewModel.selectChatSession)
+                    ChatSidebarView(
+                        chatSessions: $viewModel.chatSessions,
+                        onSelect: viewModel.selectChatSession,
+                        onDelete: viewModel.deleteChatSessions,
+                        onRename: viewModel.renameChatSession
+                    )
                     Divider()
                     mainChatView
                 }
             } else {
-                // Use a full-screen layout on smaller screens (iPhones)
                 NavigationView {
                     mainChatView
                         .navigationBarTitle("Chat", displayMode: .inline)
@@ -27,10 +32,13 @@ struct ContentView: View {
                             }
                         }
                         .sheet(isPresented: $viewModel.showChatSessions) {
-                            ChatSidebarView(chatSessions: $viewModel.chatSessions, onSelect: { session in
-                                viewModel.selectChatSession(session)
-                                viewModel.showChatSessions = false
-                            })
+                            ChatSidebarView(
+                                chatSessions: $viewModel.chatSessions,
+                                onSelect: viewModel.selectChatSession,
+                                onDelete: viewModel.deleteChatSessions,
+                                onRename: viewModel.renameChatSession
+                            )
+
                         }
                 }
             }
