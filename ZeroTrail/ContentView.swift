@@ -1,33 +1,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var errorMessage: String?
+    @StateObject private var viewModel = ChatViewModel()
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            if let errorMessage = errorMessage {
+            ChatView(messages: $viewModel.messages, inputText: $viewModel.inputText, onSend: viewModel.sendMessage)
+            
+            if let errorMessage = viewModel.errorMessage {
                 Text("Error: \(errorMessage)").foregroundColor(.red)
             }
         }
-        .padding()
         .onAppear {
-            Task {
-                do {
-                    let apiKey: String = try Configuration.value(for: "API_KEY")
-                    let api = ChatGPTAPI(apiKey: apiKey)
-                    let stream = try await api.sendMessageStream(text: "Who is James Bond?")
-                    for try await line in stream {
-                        print(line)
-                    }
-                } catch {
-                    errorMessage = error.localizedDescription
-                    print("Error: \(error)")
-                }
-            }
+            // Example of sending an initial message if needed
+            viewModel.receiveMessage("Welcome to the chat!")
         }
     }
 }
