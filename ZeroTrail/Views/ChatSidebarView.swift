@@ -19,11 +19,6 @@ struct ChatSidebarView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                Text("Saved Chats")
-                    .font(.headline)
-                    .padding(.top)
-                    .padding(.leading) // Align to the left
-
                 List(selection: $selectedChats) {
                     ForEach(chatSessions) { session in
                         HStack {
@@ -61,7 +56,7 @@ struct ChatSidebarView: View {
                     }
                 }
                 .listStyle(InsetGroupedListStyle())
-                .navigationTitle("Chats")
+                .navigationTitle("Saved Chats") // Update main title
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         EditButton()
@@ -81,4 +76,8 @@ struct ChatSidebarView: View {
             }
         }
     }
+}
+
+#Preview {
+    ChatSidebarView(chatSessions: .constant([]), onSelect: { _ in }, onDelete: { _ in }, onRename: { _, _ in })
 }
