@@ -32,7 +32,3 @@ struct ChatSidebarView: View {
         .ignoresSafeArea(edges: .vertical)
     }
 }
-
-#Preview {
-    ChatSidebarView(chatSessions: .constant([]), onSelect: { _ in })
-}
