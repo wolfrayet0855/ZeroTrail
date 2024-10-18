@@ -56,7 +56,7 @@ struct ChatSidebarView: View {
                     }
                 }
                 .listStyle(InsetGroupedListStyle())
-                .navigationTitle("Saved Chats") // Update main title
+                .navigationTitle("Saved Chats") // Main title
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         EditButton()
@@ -79,5 +79,10 @@ struct ChatSidebarView: View {
 }
 
 #Preview {
-    ChatSidebarView(chatSessions: .constant([]), onSelect: { _ in }, onDelete: { _ in }, onRename: { _, _ in })
+    ChatSidebarView(
+        chatSessions: .constant([]),
+        onSelect: { _ in },
+        onDelete: { _ in },
+        onRename: { _, _ in }
+    )
 }
