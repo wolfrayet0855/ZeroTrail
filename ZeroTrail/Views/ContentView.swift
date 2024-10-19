@@ -76,7 +76,7 @@ struct ContentView: View {
                             }
                             Text(message.content)
                                 .padding(10)
-                                .background(message.isUser ? Color.blue : Color.gray.opacity(0.3))
+                                .background(message.isUser ? Color.blue : Color.gray.opacity(0.5))
                                 .foregroundColor(.white)
                                 .cornerRadius(8)
                                 .frame(maxWidth: .infinity, alignment: message.isUser ? .trailing : .leading)
